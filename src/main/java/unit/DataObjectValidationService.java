@@ -11,23 +11,6 @@ public class DataObjectValidationService {
     }
 
     public void validate(List<String[]> rawData) {
-
-//        final Optional<unit.DataObject> firstErrorRow =
-//                rawData.stream()
-//                       .map(raw -> new unit.DataObject(
-//                               raw[0],
-//                               raw[1],
-//                               Double.valueOf(raw[2]),
-//                               Integer.valueOf(raw[3])))
-//                       .filter(x -> !x.errorMessages().isEmpty())
-//                       .findFirst();
-//
-//        if (firstErrorRow.isPresent()) {
-//            throw new RuntimeException(firstErrorRow.get()
-//                                                    .errorMessages()
-//                                                    .toString());
-//        }
-
         for (String[] raw : rawData) {
             final DataObject dataObject = new DataObject(
                     service.getValueByRaw(raw[0]),
@@ -39,12 +22,6 @@ public class DataObjectValidationService {
                                                    .errorMessages()
                                                    .toString());
             }
-
         }
     }
 }
-
-//1. 改动赋值代码
-//2. 将 validation 挪到实体类中
-//3. 添加 validation 测试
-//4. 添加 service 测试（看情况，因为需要测试替身）
