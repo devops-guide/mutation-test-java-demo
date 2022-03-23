@@ -8,6 +8,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
@@ -52,4 +53,10 @@ class ImportServiceTest {
                 }));
     }
 
+
+    @Test
+    void should_call_validate_function() {
+        importService.batchImport(Collections.emptyList());
+        verify(validationService).validate(Collections.emptyList());
+    }
 }
