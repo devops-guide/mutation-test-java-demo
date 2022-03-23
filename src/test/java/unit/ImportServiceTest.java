@@ -8,7 +8,6 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.Mockito.*;
@@ -37,25 +36,7 @@ class ImportServiceTest {
         importService.batchImport(rows);
 
         verify(repository, times(1))
-                .saveAll(argThat((List<DataObject> entities) -> {
-                    DataObject first = entities.get(0);
-                    DataObject second = entities.get(1);
-                    return entities.size() == 2
-                            && first.getColumn1().equals("column1")
-                            && first.getColumn2().equals("column2")
-                            && first.getColumn3().equals(9D)
-                            && first.getColumn4().equals(99)
-                            && second.getColumn1().equals("column11")
-                            && second.getColumn2().equals("9.99")
-                            && second.getColumn3().equals(9D)
-                            && second.getColumn4().equals(99)
-                            ;
-                }));
+                .saveAll(any());
     }
 
-    @Test
-    void should_call_validate_function() {
-        importService.batchImport(Collections.emptyList());
-        verify(validationService).validate(Collections.emptyList());
-    }
 }
