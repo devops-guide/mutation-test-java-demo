@@ -1,7 +1,17 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id 'info.solidsoft.pitest' version '1.7.0'
 }
+
+pitest {
+    targetClasses = ['unit.*']
+    pitestVersion = '1.7.0' //not needed when a default PIT version should be used
+    outputFormats = ['XML', 'HTML']
+    timestampedReports = false
+    junit5PluginVersion = '0.12'
+}
+
 
 jacoco {
     toolVersion = "0.8.7"
