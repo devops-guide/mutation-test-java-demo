@@ -36,7 +36,20 @@ class ImportServiceTest {
         importService.batchImport(rows);
 
         verify(repository, times(1))
-                .saveAll(any());
+                .saveAll(argThat((List<DataObject> entities) -> {
+                    DataObject first = entities.get(0);
+                    DataObject second = entities.get(1);
+                    return entities.size() == 2
+                            && first.getColumn1().equals("column1")
+                            && first.getColumn2().equals("column2")
+                            && first.getColumn3().equals(9D)
+                            && first.getColumn4().equals(99)
+                            && second.getColumn1().equals("column11")
+                            && second.getColumn2().equals("9.99")
+                            && second.getColumn3().equals(9D)
+                            && second.getColumn4().equals(99)
+                            ;
+                }));
     }
 
 }
