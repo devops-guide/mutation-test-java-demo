@@ -20,14 +20,14 @@
 ### 查看 ImportService 覆盖率情况
 1. 点击上图箭头，可见报告如下图，其中 ImportService.java 的 `行测试覆盖率（Line Coverage）` 是 100%，`变异覆盖率（Mutation Coverage）`是33%
 
-![ImportService 测试覆盖率100% 变异测试覆盖率33%](docs/import-service-mutation-coverage-33%.png)
+![ImportService 测试覆盖率100% 变异测试覆盖率33%](docs/import-service-mutation-coverage-33-per.png)
 
 
 
 ### 查看 ImportService 变异存活情况
 1. 点击 `ImportService` 查看类变异存活情况，可见报告如下图，共有3个变异，其中两个存活（红色），一个被杀死（绿色）
 
-![ImportService 有两个变异存活](docs/import-service-mutations-at-33%.png)
+![ImportService 有两个变异存活](docs/import-service-mutations-at-33-per.png)
 
 ## 思考如何消除变异
 
